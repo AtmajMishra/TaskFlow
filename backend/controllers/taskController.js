@@ -23,6 +23,39 @@
 }
 catch(error)
 {
-
+        res.status(400).json({success:false, message:error.message});
 }
+ };
+
+ // GET ALL THE TASK FOR THE LOGGED IN USER
+
+ export const getTask=async(req,res)=>{
+    try{
+        const tasks=await Task.find({owner:req.user.id}).sort({createdAt:-1});
+        res.json({success:true, tasks});
+    }catch(error){
+        res.status(500).json({success:false, message:error.message});
+    }
  }
+
+ // GET SINGLE TASKS BY ID(MUST BELONG TO  THAT USER)
+
+ export const getTaskById=async(req,res)=>
+ {
+    try{
+        const task=await Task.findOne({_id:req.params.id, owner:req.user.id});
+        if(!task) return res.status(400).json({
+    success:false,
+    message:"Task not found"
+});
+
+ } catch(err){
+    res.status(500).json({success:false, message:err.message});
+ }
+}
+
+// UPDATE A TASK
+
+export const updateTask=async(req,res)=>{
+    
+}
