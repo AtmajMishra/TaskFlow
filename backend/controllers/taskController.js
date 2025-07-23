@@ -56,6 +56,38 @@ catch(error)
 
 // UPDATE A TASK
 
-export const updateTask=async(req,res)=>{
-    
+export const updateTask=async(req,res)=>{  
+    try{
+        const data={...req.body};
+        if(data.completed!==undefined)
+        {
+           data.completed=data.completed==='Yes'|| data.completed===true;
+        }
+        const updated=await Task.findOneAndUpdate(
+            {_id:req.params.id,
+            owner:req.user.id,},
+           { new:true,
+            runValidators:true
+        });
+        if(!updated)
+             return res.status(404).json({success:false, message:"Task not found or is not yours"});
+        else { res.status(200).json({success:true, task:updated});}
+    }catch(err)
+    {
+        res.status(400).json({success:false, message:err.message});
+    }
+}
+
+// DELETE A TASK
+
+export const deleteTask=async(req, res)=>{
+    try{
+        const deleted=await Task.findOneAndDelete({_id:req.params.id, owner:req.user.id});
+        if(!deleted)
+            return res.status(404).json({success:false, message:"Task not found or not yours"});
+        res.json({success:true, message:"Task Deleted "});
+    }
+    catch(err){
+        res.status(500).json({success:false, message:err.message});
+    }
 }
