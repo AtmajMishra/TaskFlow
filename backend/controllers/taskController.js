@@ -29,7 +29,7 @@ catch(error)
 
  // GET ALL THE TASK FOR THE LOGGED IN USER
 
- export const getTask=async(req,res)=>{
+ export const getTasks=async(req,res)=>{
     try{
         const tasks=await Task.find({owner:req.user.id}).sort({createdAt:-1});
         res.json({success:true, tasks});

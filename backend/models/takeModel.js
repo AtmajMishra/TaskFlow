@@ -11,15 +11,15 @@ const taskSchema = new mongoose.Schema({
   },
   priority: {
     type: String,
-    enum: ["Low", "Medium", "High"],
-    default: "Low",
+    enum: ['Low', 'Medium', 'High'],
+    default: 'Low',
   },
   dueDate: {
     type: Date,
   },
   owner: {
     type: mongoose.Schema.Types.ObjectId,
-    ref: "User",
+    ref: 'User',
     required: true,
   },
   completed: {

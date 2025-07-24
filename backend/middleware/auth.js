@@ -12,7 +12,7 @@ export default async function authMiddleware(req,res,next)
         return res.status(401).json({success:false, message:"Not Authorized, token missing"})
     }
 
-    const token= authHeader.split('')[1];
+    const token= authHeader.split(' ')[1];
 
     // VERIFY AND ATTACH USER OBJECT
 
@@ -29,7 +29,7 @@ export default async function authMiddleware(req,res,next)
         next();
 
     }catch(error){
-        console.log("JWT verification failed", err);
+        console.log("JWT verification failed", error);
         return res.status(401).json({success:false, message:"Token invalid or expired" })
 
     }

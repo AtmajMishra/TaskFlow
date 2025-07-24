@@ -4,6 +4,7 @@ import 'dotenv/config'
 import userRouter from './routes/userRoute.js'
 
 import {connectDB} from './config/db.js'
+import taskRouter from "./routes/taskRoute.js"
 
 
 const app=express()
@@ -19,7 +20,9 @@ connectDB();
 
 
 // Routes
-app.use("/api/user", userRouter);
+app.use('/api/user', userRouter);
+app.use('/api/tasks',taskRouter);
+
 
 app.get('/', (req,res)=>{
     res.send('API WORKING');
