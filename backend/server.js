@@ -19,7 +19,7 @@ app.use(express.urlencoded({extended: true}));
 connectDB();
 
 
-// Route handlers
+// Route handlers 
 app.use('/api/user', userRouter);
 app.use('/api/tasks',taskRouter);
 
