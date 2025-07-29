@@ -10,16 +10,21 @@ const Navbar = () => {
         {/* Logo can be added here */}
         <div
           className=" flex items-center gap-2 cursor-pointer group"
-          onClick={() => navigate("/")} >
+          onClick={() => navigate('/')} >
           {/*LOGO*/}
           <div
             className="relative w-10 h-10 flex items-center justify-center rounded-xl 
             bg-gradient-to-br from-fuchsia-500 
             via-purple-500 to-indigo-500 shadow-lg group-hover:shadow-purple-300/50 
              group-hover:scale-105 transition-all duration-300 ">
-            {/**/ }
+          
             <Zap className="w-6 h-6 text-white" />
+            <div className=' absolute -bottom-1 -middle-1 w-3 h-3 bg-white rounded-full shadow-md animate-ping'/>
           </div>
+          {/*Brand Name*/}
+          <span className='text-2xl font-extrabold bg-gradient-to-r from-fuchsia-500 via-purple-500 to-indigo-500 bg-clip-text text-transparent tracking-wide '>
+            TaskManager
+          </span>
         </div>
       </div>
     </header>
