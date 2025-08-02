@@ -1,6 +1,6 @@
 import React, { use } from "react";
 import { useNavigate } from "react-router-dom";
-import { Zap, Settings} from "lucide-react";
+import { Paperclip, Settings} from "lucide-react";
 
 const Navbar = () => {
   const navigate = useNavigate();
@@ -16,15 +16,15 @@ const Navbar = () => {
           {/*LOGO*/}
           <div
             className="relative w-10 h-10 flex items-center justify-center rounded-xl 
-            bg-gradient-to-br from-blue-500 
+            bg-gradient-to-br from-red-500 
             via-aqua-500 to-indigo-500 shadow-lg group-hover:shadow-purple-300/50 
              group-hover:scale-105 transition-all duration-300 ">
           
-            <Zap className="w-6 h-6 text-white" />
+            <Paperclip className="w-6 h-6 text-white" />
             <div className=' absolute -bottom-1 -middle-1 w-3 h-3 bg-white rounded-full shadow-md animate-ping'/>
           </div>
           {/*Brand Name*/}
-          <span className='text-2xl font-extrabold bg-gradient-to-r from-blue-500 via-aqua-500 to-indigo-500 bg-clip-text text-transparent tracking-wide '>
+          <span className='text-2xl font-extrabold bg-gradient-to-r from-red-500 via-aqua-500 to-indigo-500 bg-clip-text text-transparent tracking-wide '>
             TaskManager
           </span>
         </div>
@@ -35,7 +35,7 @@ const Navbar = () => {
         >
           <Settings className="w-5 h-5 transform transition-transform duration-300 group-hover:rotate-90"/>
         </button>
-        {/* */}
+        {/*abc */}
         
         </div>
       
