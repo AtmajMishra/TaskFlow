@@ -35,7 +35,7 @@ const Navbar = () => {
         >
           <Settings className="w-5 h-5 transform transition-transform duration-300 group-hover:rotate-90"/>
         </button>
-        {/*abc */}
+        {/*abcd */}
         
         </div>
       
